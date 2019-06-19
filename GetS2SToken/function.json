@@ -6,7 +6,7 @@
       "direction": "in",
       "name": "req",
       "methods": ["get"],
-      "route": "token"
+      "route": "s2s-token"
     },
     {
       "type": "http",
