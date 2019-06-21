@@ -1,4 +1,15 @@
 {
   "$schema": "http://json.schemastore.org/proxies",
-  "proxies": {}
+  "proxies": {
+    "echo-proxy": {
+      "matchCondition": {
+        "methods": ["GET"],
+        "route": "/api/echo/{stuff}"
+      },
+      "responseOverrides": {
+        "response.body": "Hello, {stuff}",
+        "response.headers.Content-Type": "text/plain"
+      }
+    }
+  }
 }
