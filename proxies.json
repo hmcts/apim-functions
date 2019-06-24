@@ -10,6 +10,13 @@
         "response.body": "Hello, {stuff}",
         "response.headers.Content-Type": "text/plain"
       }
+    },
+    "address-lookup": {
+      "matchCondition": {
+        "methods": ["GET"],
+        "route": "/api/addresses/{postcode}"
+      },
+      "backendUri": "https://api.ordnancesurvey.co.uk/places/v1/addresses/postcode?postcode={postcode}&key=%AddressLookupAPIKey%"
     }
   }
 }
