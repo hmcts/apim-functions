@@ -1,0 +1,108 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "apim-functions-dev",
+    "version": "1.0",
+    "description": "Import from \"apim-functions-dev\" Function App"
+  },
+  "host": "apim-preview.service.core-compute-preview.internal",
+  "basePath": "/apim-functions-dev",
+  "schemes": ["https"],
+  "securityDefinitions": {
+    "apiKeyHeader": {
+      "type": "apiKey",
+      "name": "Ocp-Apim-Subscription-Key",
+      "in": "header"
+    },
+    "apiKeyQuery": {
+      "type": "apiKey",
+      "name": "subscription-key",
+      "in": "query"
+    }
+  },
+  "security": [
+    {
+      "apiKeyHeader": []
+    },
+    {
+      "apiKeyQuery": []
+    }
+  ],
+  "x-servers": [
+    {
+      "url": "https://apim-preview.service.core-compute-preview.internal"
+    },
+    {
+      "url": "https://core-api-mgmt-preview-uksouth-01.regional.azure-api.net"
+    }
+  ],
+  "paths": {
+    "/totp": {
+      "get": {
+        "operationId": "get-gettotp",
+        "summary": "GetTotp",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "service-key",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "totp": {
+                  "type": "string",
+                  "description": "Timed one time password value"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Error description"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/addresses/{postcode}": {
+      "get": {
+        "description": "Retrieves addresses from postcode",
+        "operationId": "getadresses",
+        "summary": "GetAdresses",
+        "parameters": [
+          {
+            "name": "postcode",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}
