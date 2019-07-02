@@ -5,7 +5,7 @@ const validHeaders = {
   "service-key": "the-key"
 };
 
-describe("getS2SToken function", () => {
+describe("GetTotp function", () => {
   beforeEach(() => {
     mockAxios.mockReset();
   });

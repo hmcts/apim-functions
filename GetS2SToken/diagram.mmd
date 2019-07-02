@@ -1,6 +1,0 @@
-sequenceDiagram
-    Gateway Policy->> GetS2SToken: GET s2s token
-    Note right of GetS2SToken: generates a totp
-    GetS2SToken->> S2SService: get s2s token
-    S2SService-->>GetS2SToken: s2s token
-    GetS2SToken-->>Gateway Policy: s2s token
